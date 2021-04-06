@@ -86,7 +86,7 @@ public class Motor {
 	}
 
 	public void imp_Ou_Nao() {
-		if(player2.energia == 0 || player1.energia == 0 || rodadas == 11) {
+		if(player2.energia <= 0 || player1.energia <= 0 || rodadas == 11) {
 
 		}else if(at_Jogador == 1){
 			player1.imp_Dados(3);
