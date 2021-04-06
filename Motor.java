@@ -89,9 +89,9 @@ public class Motor {
 		if(player2.energia <= 0 || player1.energia <= 0 || rodadas == 11) {
 
 		}else if(at_Jogador == 1){
-			System.out.println("_______________________________________" + "O Héroi " + player1.nome + " Ataca agora...");
+			player1.imp_Dados(3);
 		}else{
-			System.out.println("_______________________________________" + "O Héroi " + player2.nome + " Ataca agora...");	
+			player2.imp_Dados(3);
 		}
 	}
 }

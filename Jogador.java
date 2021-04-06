@@ -23,6 +23,9 @@ public class Jogador {
 		case 2:
 			System.out.println("Héroi: " + this.nome + " | Energia: " + this.energia);
 			break;
+		case 3:
+			System.out.println("_______________________________________" + "O Héroi " + this.nome + " Ataca agora...");
+			break;
 		default:
 			System.out.println("Héroi: " + this.nome + " | Energia: " + this.energia + " | Poder: " + this.poder);
 			break;
