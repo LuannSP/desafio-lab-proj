@@ -8,6 +8,7 @@ public class Interacoes {
 	public int jogar_Dado() {                                                                                           
 		int ver_d = 0;	
 		Random vr_d = new Random();	
+		
 		for(int d = 0; d < 100; d++) {
 			ver_d = vr_d.nextInt( 100 ) + 1;	 
 			break;

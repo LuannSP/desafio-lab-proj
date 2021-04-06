@@ -1,7 +1,6 @@
 package Player;
 
 import java.util.Random;
-import Engine.Motor;
 
 public class Jogador {
 
@@ -16,13 +15,9 @@ public class Jogador {
 	}
 
 	public void imp_Dados(int ver_Dados) {
-		Motor enx = new Motor(); 
 		switch(ver_Dados) {
 		case 1:
-			System.out.println("_______________________________________" + "O Héroi " + enx.player1.nome + " começa atacando...");
-			break;
-		case 2:
-			System.out.println("_______________________________________" + "O Héroi " + enx.player2.nome + " começa atacando..."); 
+			System.out.println("_______________________________________" + "O Héroi " + this.nome + " começa atacando...");
 			break;
 		default:
 			System.out.println("Héroi: " + this.nome + " | Energia: " + this.energia + " | Poder: " + this.poder);

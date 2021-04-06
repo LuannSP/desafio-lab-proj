@@ -28,7 +28,11 @@ public class Motor {
 		player2.imp_Dados(0); 
 		System.out.println();
 		at_Jogador = player1.ver_Primeiro_Jogador();
-		player1.imp_Dados(at_Jogador);
+		if (at_Jogador == 1) {
+			player1.imp_Dados(1);
+		}else {
+			player2.imp_Dados(1);
+		}
 	}
 
 	public void criar_Round() {
