@@ -1,6 +1,7 @@
 package Engine;
 
-import Ações.Interacoes;
+import java.util.Random;
+import java.util.Scanner;
 import Player.Jogador;
 
 public class Motor {
@@ -11,9 +12,23 @@ public class Motor {
 	int at_Dado; 
 
 	public Jogador player1 = new Jogador("Bárbaro",40,50);  
-	public Jogador player2 = new Jogador("Romano",50,40);  
+	public Jogador player2 = new Jogador("Romano",50,40);  	
 
-	Interacoes inter = new Interacoes();  
+	public int jogar_Dado() {                                                                                           
+		int ver_d = 0;	
+		Random vr_d = new Random();	
+
+		for(int d = 0; d < 100; d++) {
+			ver_d = vr_d.nextInt( 100 ) + 1;	 
+			break;
+		}
+		return ver_d;                                                                                           
+	}
+
+	public void criar_Linha() {                                                   
+		Scanner sx = new Scanner(System.in);
+		sx.nextLine();
+	}
 
 	public void criar_Round_Intro() {   
 		System.out.println("Que a sorte te acompanhe. Você tem 10 Rounds...");
@@ -40,33 +55,33 @@ public class Motor {
 		System.out.println("...::: RODADA " + rodadas++ + " :::..."); 
 		System.out.println();
 		System.out.println("Dado ao vento.... aperte enter para jogar");
-		inter.criar_Linha();
-		at_Dado = inter.jogar_Dado();
+		criar_Linha();
+		at_Dado = jogar_Dado();
 		System.out.println("Eeeeeee ele parou no " + "(" + at_Dado + ")");
 		System.out.println();   
 
 		if(at_Jogador == 2) {	
 			at_Jogador = 1; 
 			player1.rem_Energia(at_Dado, player2.poder);
-			player1.imp_Dados(0);
-			player2.imp_Dados(0); 
+			player1.imp_Dados(2);
+			player2.imp_Dados(2); 
 			System.out.println();
 			imp_Ou_Nao(); 
 		}else {			
 			at_Jogador = 2;
 			player2.rem_Energia(at_Dado, player1.poder); 
-			player1.imp_Dados(0);
-			player2.imp_Dados(0);
+			player1.imp_Dados(2);
+			player2.imp_Dados(2);
 			System.out.println();
 			imp_Ou_Nao();
 		}	
 
 		if(player1.energia <= 0) {  
-			inter.todos_Finais(1, player2.energia, player2.nome);
+			player2.todos_Finais(1);
 		}else if(player2.energia <= 0){
-			inter.todos_Finais(1, player1.energia, player1.nome); 
+			player1.todos_Finais(1); 
 		}else if(rodadas == 11) {
-			inter.todos_Finais(0,0,""); 
+			player1.todos_Finais(0); 
 		}
 	}
 
